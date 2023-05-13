@@ -475,48 +475,48 @@ static id GetNullableObjectAtIndex(NSArray* array, NSInteger key) {
 @interface PdfxApiCodecReader : FlutterStandardReader
 @end
 @implementation PdfxApiCodecReader
-- (nullable id)readValueOfType:(UInt8)type 
+- (nullable id)readValueOfType:(UInt8)type
 {
   switch (type) {
-    case 128:     
+    case 128:
       return [GetPageMessage fromMap:[self readValue]];
-    
-    case 129:     
+
+    case 129:
       return [GetPageReply fromMap:[self readValue]];
-    
-    case 130:     
+
+    case 130:
       return [IdMessage fromMap:[self readValue]];
-    
-    case 131:     
+
+    case 131:
       return [OpenDataMessage fromMap:[self readValue]];
-    
-    case 132:     
+
+    case 132:
       return [OpenPathMessage fromMap:[self readValue]];
-    
-    case 133:     
+
+    case 133:
       return [OpenReply fromMap:[self readValue]];
-    
-    case 134:     
+
+    case 134:
       return [RegisterTextureReply fromMap:[self readValue]];
-    
-    case 135:     
+
+    case 135:
       return [RenderPageMessage fromMap:[self readValue]];
-    
-    case 136:     
+
+    case 136:
       return [RenderPageReply fromMap:[self readValue]];
-    
-    case 137:     
+
+    case 137:
       return [ResizeTextureMessage fromMap:[self readValue]];
-    
-    case 138:     
+
+    case 138:
       return [UnregisterTextureMessage fromMap:[self readValue]];
-    
-    case 139:     
+
+    case 139:
       return [UpdateTextureMessage fromMap:[self readValue]];
-    
-    default:    
+
+    default:
       return [super readValueOfType:type];
-    
+
   }
 }
 @end
@@ -524,56 +524,56 @@ static id GetNullableObjectAtIndex(NSArray* array, NSInteger key) {
 @interface PdfxApiCodecWriter : FlutterStandardWriter
 @end
 @implementation PdfxApiCodecWriter
-- (void)writeValue:(id)value 
+- (void)writeValue:(id)value
 {
   if ([value isKindOfClass:[GetPageMessage class]]) {
     [self writeByte:128];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[GetPageReply class]]) {
     [self writeByte:129];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[IdMessage class]]) {
     [self writeByte:130];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[OpenDataMessage class]]) {
     [self writeByte:131];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[OpenPathMessage class]]) {
     [self writeByte:132];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[OpenReply class]]) {
     [self writeByte:133];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[RegisterTextureReply class]]) {
     [self writeByte:134];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[RenderPageMessage class]]) {
     [self writeByte:135];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[RenderPageReply class]]) {
     [self writeByte:136];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[ResizeTextureMessage class]]) {
     [self writeByte:137];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[UnregisterTextureMessage class]]) {
     [self writeByte:138];
     [self writeValue:[value toMap]];
-  } else 
+  } else
   if ([value isKindOfClass:[UpdateTextureMessage class]]) {
     [self writeByte:139];
     [self writeValue:[value toMap]];
-  } else 
+  } else
 {
     [super writeValue:value];
   }
